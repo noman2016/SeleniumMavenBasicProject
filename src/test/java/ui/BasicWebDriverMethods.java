@@ -1,10 +1,15 @@
 package ui;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class BasicWebDriverMethods {
@@ -44,13 +49,35 @@ public class BasicWebDriverMethods {
 		System.out.println(getPageSource);
 		
 		//navigate(): Method -An abstraction allowing the driver to access the browser’s history and to navigate to a given URL.
-		driver.navigate().to("http://google.com");
+		/*driver.navigate().to("http://google.com");*/
 		
 		//Using TimeUnit
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
+		//findElement(By by): Method -Find the first WebElement using the given method.
+		driver.findElement(By.id("user-name")).sendKeys("standard_user");
+		driver.findElement(By.id("password")).sendKeys("secret_sauce");
+		driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
+		
+		//findElements(By by): Method -Find all elements within the current page using the given mechanism.
+		List<WebElement> webelements = driver.findElements(By.xpath("//div[@class='inventory_container']/div"));
+		System.out.println(webelements);
+		
+		//get window handle(): Method -Return an opaque handle to this window that uniquely identifies it within this driver instance.
+		driver.navigate().to("https://www.sugarcrm.com/");
+		String windowhandle = driver.getWindowHandle();
+		System.out.println(windowhandle);
+		
+		//getWindowHandles(): Method -Return a set of window handles that can be used to iterate over all open windows of this WebDriver instance by passing them to switchTo().WebDriver.Options.window()
+		driver.findElement(By.xpath("//*[@id=\"mega-menu-item-44\"]/a")).click();
+		Set<String> windowhandles = driver.getWindowHandles();
+		System.out.println(windowhandles);
+		
+		//quit(): Method -Quits this driver, closing every associated window.
+		driver.quit();
+		
 		//close(): Method -Close the current window, quitting the browser if it’s the last window currently open.
-		driver.close();
+		/*driver.close();*/
 		
 	}
 	
