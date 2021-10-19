@@ -25,10 +25,10 @@ public class SelectDropdown {
 		driver.manage().window().maximize();
 		WebElement dropdown = driver.findElement(By.name("employees_c"));
 		Select select = new Select(dropdown);
-		
+
 		WebElement firstOption = select.getFirstSelectedOption();
 		System.out.println(firstOption.getText());
-		
+
 		select.selectByValue("level1");
 		try {
 			Thread.sleep(2000);
@@ -58,15 +58,9 @@ public class SelectDropdown {
 		 * driver.manage().window().maximize(); WebElement dropdown =
 		 * driver.findElement(By.name("selenium_commands")); Select select = new
 		 * Select(dropdown);
-		 */
-
-		/*
-		 * select.selectByValue("level1"); try { Thread.sleep(2000); } catch
-		 * (InterruptedException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-
-		/*
+		 * 
+		 * 
+		 * 
 		 * select.selectByVisibleText("Navigation Commands"); try { Thread.sleep(2000);
 		 * } catch (InterruptedException e) { // TODO Auto-generated catch block
 		 * e.printStackTrace(); }
