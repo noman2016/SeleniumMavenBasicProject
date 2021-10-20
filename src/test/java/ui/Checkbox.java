@@ -26,6 +26,7 @@ public class Checkbox {
 		actions.perform();
 		
 		driver.findElement(By.name("interest_market_c")).click();
+		driver.findElement(By.name("interest_market_c")).isSelected();
 		Thread.sleep(2000);
 		driver.findElement(By.name("interest_market_c")).click();
 		Thread.sleep(2000);
