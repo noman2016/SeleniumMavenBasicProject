@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class ImplicitWait {
+public class FluentWait {
 
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -24,6 +24,12 @@ public class ImplicitWait {
 		WebElement element = driver.findElement(By.xpath("//*[@id=\"mainContent\"]/div[1]/ul/li[3]/a"));
 		Actions action = new Actions(driver);
 		action.moveToElement(element).perform();
+		
+/*		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+			       .withTimeout(Duration.ofSeconds(10))
+			       .pollingEvery(Duration.ofSeconds(2))
+			       .withMessage("This is the custom message")
+			       .ignoring(NoSuchElementException.class);      */
 		
 		//WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
